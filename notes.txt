@@ -1,0 +1,23 @@
+project->rightclick->properties->java buildpath -> libararies tab -> class path tap -> add external jar click ->
+browse -> tomcat / lib / servlet-api.jar -> open -> order and export tab -> select all -> apply and close 
+
+
+-------------------------
+
+logic -> Servlet -> controller 
+
+		SignupServlet --> class --> 
+	
+
+1) class extends HttpServlet 
+2) override -> service()	
+3) url @WebServlet("/")
+-------------------------
+
+
+html -> servlet -> printwriter -> output response -> html 
+
+		
+jsp -> java servlet page / java server pages 
+	-> HTML + java 
+	
