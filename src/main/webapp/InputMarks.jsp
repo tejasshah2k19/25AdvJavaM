@@ -9,7 +9,8 @@
 
 </head>
 <body>
-
+		
+		
 	<form action="CalculatePercentageServlet" method="post">
 		StudentName: <input type="text" name="studentName" /><br><br>
 		Maths:<input type="text" name="maths"/><br><br>
