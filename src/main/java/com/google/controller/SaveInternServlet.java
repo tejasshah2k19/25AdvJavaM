@@ -50,13 +50,19 @@ public class SaveInternServlet extends HttpServlet{
 			isError = true;
 			request.setAttribute("hobbyError", "Please Select Hobby");
 		}else {
-			request.setAttribute("hobbyValue", hobby);
+			String hobbyStr = "";
+			for(int i=0;i<hobby.length;i++) {
+				hobbyStr = hobbyStr + hobby[i]+" ";
+			}
+			
+			request.setAttribute("hobbyValue", hobbyStr);
 		}
 		
 		if(isError) {
 			RequestDispatcher rd = request.getRequestDispatcher("InternReg.jsp");
 			rd.forward(request, response);
 		}else {
+		
 			
 			RequestDispatcher rd = request.getRequestDispatcher("InternSuccess.jsp");
 			rd.forward(request, response);

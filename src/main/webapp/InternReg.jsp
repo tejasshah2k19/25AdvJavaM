@@ -28,15 +28,15 @@
 		Language : 
 				<select name="language">
 					<option value="-1" >Please Select Language</option>
-					<option value="java" >Java</option>
-					<option value="js" >JS</option>
-					<option value="ts" >TS</option>
+					<option value="java" ${languageValue=='java'?"selected":""}>Java</option>
+					<option value="js"  ${languageValue=='js'?"selected":""}>JS</option>
+					<option value="ts" ${languageValue=='ts'?"selected":""} >TS</option>
 				</select><span class="error">${languageError}</span>
 				<br><Br>
 		
-		Hobby : 	Cricket<input type="checkbox" name="hobby" value="cricket"/>
-				WhatsApp<input type="checkbox" name="hobby" value="WhatsApp"/>
-				IG<input type="checkbox" name="hobby" value="IG"/>
+		Hobby : 	Cricket<input type="checkbox" name="hobby" value="cricket" ${hobbyValue.contains("cricket")?"checked":""}  />
+				WhatsApp<input type="checkbox" name="hobby" value="WhatsApp"  ${hobbyValue.contains("WhatsApp")?"checked":""}/>
+				IG<input type="checkbox" name="hobby" value="IG" ${hobbyValue.contains("IG")?"checked":""}/>
 				
 				<span class="error">${hobbyError}</span>
 				<br><Br>
