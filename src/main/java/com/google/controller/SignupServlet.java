@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.util.BCrypt;
+
 @WebServlet("/SignupServlet")
 public class SignupServlet extends HttpServlet {
 
@@ -26,7 +28,18 @@ public class SignupServlet extends HttpServlet {
 		System.out.println(email);
 		System.out.println(password);
 		
-		//
+		//alog => encrypt 
+		//Bcrypt -> password encryption 
+		//password=12345 
+		//h7j65i4o9e8r7tgh,ki7654e 
+		
+		String encPass = BCrypt.hashpw(password, BCrypt.gensalt());//10
+		System.out.println(encPass);
+		 
+		
+		
+		
+		
 		response.setContentType("text/html"); // i will send an html data 
 		//text/html -> MIME type 
 		PrintWriter out = response.getWriter();

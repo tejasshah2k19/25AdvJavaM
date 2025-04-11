@@ -21,3 +21,120 @@ html -> servlet -> printwriter -> output response -> html
 jsp -> java servlet page / java server pages 
 	-> HTML + java 
 	
+------------------------------------------------------------------------
+
+CGI
+
+signup request -----------> server 
+
+1	request			server		logic -> new object  
+2	request			server		logic -> new object 
+3	request			server		logic -> new object 
+4	request			server		logic -> new object 
+5 	request			server		logic -> new object 
+
+
+500 request -> object -> 500 
+new 
+delete 
+
+
+
+singleton design pattern -->
+					-> instance of your class init. only once 
+					-> you have only single object in the memory for your class 
+					-> you are not suppose to create second object in memory 
+
+
+1	request			server		logic -> new object  
+2	request			server		logic -> existing object  
+3	request			server		logic -> existing object 
+4	request			server		logic -> existing object 
+5 	request			server		logic -> existing object 
+
+------------------------------------------------------------------------------------
+
+
+SignupServlet -->
+				request 1st time --> 
+								server -> memory instance ? No 
+								load class 
+								create instance 
+								init() 
+								service()
+								
+				request 2nd time --> 
+								server -> memory instance ? yes
+								thread -> service 
+								 
+				request 3rd time --> 
+								server -> memory instance ? yes
+								thread -> service 
+								
+
+
+life cycle servlet 
+	1) load class
+	2) create instance 
+	3) init() : 1 time 
+	4) service() : n Time 
+	5) destroy() : 1 time when shutdown server 
+
+
+-----------------------------------------------------------------------------------------------
+
+ServletConfig --> 
+
+		.xml 
+
+-------------------------------------------------------------------------------------------------
+
+project->right click->properties->java build path -> libararies tab -> 
+class path tap -> add  jar click ->
+select your project -> web-inf / lib / mysql-connector.jar -> open -> order and export tab -> select all -> apply and close 
+
+-------------------------------------------------------------------------------------------------
+
+java web ---> connection --> mysql database 
+jdbc 
+
+
+create table users(
+	userId int primary key auto_increment,
+	name varchar(20),
+	mobile varchar(20),
+	credits int 
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 		<span class="error">${firstNameError }</span>
 		<br><Br>
 		
-		Email : <input type="text" name="email"/><br><Br>
+		Email : <input type="text" name="email" value="${emailValue}"/>${emailError}<br><Br>
 		
 		Password : <input type="password" name="password"/><br><Br>
 		
