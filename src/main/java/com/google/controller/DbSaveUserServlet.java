@@ -39,6 +39,8 @@ public class DbSaveUserServlet extends HttpServlet {
 			
 			System.out.println(record+" record inserted...");
 			
+			response.sendRedirect("DbListUserServlet");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
