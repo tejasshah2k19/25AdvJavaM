@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.bean.UserBean;
 import com.google.util.DbConnection;
 
 @WebServlet("/DbListUserServlet")
@@ -28,11 +30,8 @@ public class DbListUserServlet extends HttpServlet {
 
 			ResultSet rs = pstmt.executeQuery(); // run
 
-			request.setAttribute("rs", rs);
+			ArrayList<UserBean> users = new ArrayList<UserBean>();
 
-			PrintWriter out = response.getWriter();
-			response.setContentType("text/html");
-			
 			while (rs.next()) // first record-> present:true : no record :false
 			{
 				int userId = rs.getInt("userId");
@@ -40,8 +39,19 @@ public class DbListUserServlet extends HttpServlet {
 				String mobile = rs.getString("mobile");
 				int credits = rs.getInt("credits");
 
-				out.print(userId + "  " + name + "  " + mobile + "  " + credits+"<br>");
+				UserBean userBean = new UserBean();
+				userBean.setUserId(userId);
+				userBean.setName(name);
+				userBean.setMobile(mobile);
+				userBean.setCredits(credits);
+
+				users.add(userBean);
+
 			}
+
+			request.setAttribute("users", users);
+			RequestDispatcher rd = request.getRequestDispatcher("DbListUser.jsp");
+			rd.forward(request, response);
 
 		} catch (Exception e) {
 			e.printStackTrace();
